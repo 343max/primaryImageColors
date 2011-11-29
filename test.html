@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script src="primaryImageColors.js"></script>
+	<script src="jquery-1.7.1.min.js"></script>
+	<meta charset="utf-8" />
+	<title>favicons</title>
+<style>
+
+
+
+</style>
+<script>
+
+
+function processFavicons(favicons) {
+	$.each(favicons, function(i, url) {
+		console.log(url);
+
+		var div = $('<div>').addClass('sample');
+		div.append('<div>').addClass('favicon').css('background-image', url);
+
+		$('body').append(div);
+	});
+}
+
+processFavicons([
+	'http://dribbble.com/favicon.ico',
+	'http://www.google.de/favicon.ico',
+	'http://whatsitscolor.com/favicon.ico',
+	'http://www.piratenpartei.de/custom/favicon.ico',
+	'http://343max.de/custom/favicon.ico',
+	'http://nachrichten.lvz-online.de/resources/favicon.ico',
+	'http://ifttt.com/favicon2.ico',
+	'http://www.vemedio.com/favicon.ico',
+	'http://www.taz.de/favicon.ico',
+	'http://hacks.mozilla.org/wp-content/themes/Hacks2010/favicon.ico',
+	'http://www.tagesspiegel.de/images/favicon/3714/3.ico',
+	'http://www.faz.net/favicon.ico',
+	'http://www.137b.org/favicon.ico',
+	'http://www.theverge.com/images/verge/favicon.png',
+	'https://nav.heroku.com/images/logos/favicon.ico',
+	'http://www.spiegel.de/favicon.ico',
+	'http://www.apple.com/favicon.ico'
+]);
+
+</script>
+
+</head>
+<body>
+
+
+</body>
+</html>
