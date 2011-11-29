@@ -7,7 +7,19 @@
 	<title>favicons</title>
 <style>
 
+div.sample {
+	padding: 10px;
+}
 
+div.sample div {
+	float: left;
+}
+
+div.sample div.favicon {
+	width: 16px;
+	height: 16px;
+	background-size: 100%;
+}
 
 </style>
 <script>
@@ -18,31 +30,36 @@ function processFavicons(favicons) {
 		console.log(url);
 
 		var div = $('<div>').addClass('sample');
-		div.append('<div>').addClass('favicon').css('background-image', url);
+		div.append($('<div>').addClass('favicon').css('background-image', 'url(' + url + ')'));
+
+		imageColors(url);
 
 		$('body').append(div);
 	});
 }
 
-processFavicons([
-	'http://dribbble.com/favicon.ico',
-	'http://www.google.de/favicon.ico',
-	'http://whatsitscolor.com/favicon.ico',
-	'http://www.piratenpartei.de/custom/favicon.ico',
-	'http://343max.de/custom/favicon.ico',
-	'http://nachrichten.lvz-online.de/resources/favicon.ico',
-	'http://ifttt.com/favicon2.ico',
-	'http://www.vemedio.com/favicon.ico',
-	'http://www.taz.de/favicon.ico',
-	'http://hacks.mozilla.org/wp-content/themes/Hacks2010/favicon.ico',
-	'http://www.tagesspiegel.de/images/favicon/3714/3.ico',
-	'http://www.faz.net/favicon.ico',
-	'http://www.137b.org/favicon.ico',
-	'http://www.theverge.com/images/verge/favicon.png',
-	'https://nav.heroku.com/images/logos/favicon.ico',
-	'http://www.spiegel.de/favicon.ico',
-	'http://www.apple.com/favicon.ico'
-]);
+$().ready(function() {
+	processFavicons([
+		'favicons/dribbble.com-favicon.ico',
+		'favicons/www.google.de-favicon.ico',
+		'favicons/whatsitscolor.com-favicon.ico',
+		'favicons/www.piratenpartei.de-custom-favicon.ico',
+		'favicons/343max.de-custom-favicon.ico',
+		'favicons/nachrichten.lvz-online.de-resources-favicon.ico',
+		'favicons/ifttt.com-favicon2.ico',
+		'favicons/www.vemedio.com-favicon.ico',
+		'favicons/www.taz.de-favicon.ico',
+		'favicons/hacks.mozilla.org-wp-content-themes-Hacks2010-favicon.ico',
+		'favicons/www.tagesspiegel.de-images-favicon-3714-3.ico',
+		'favicons/www.faz.net-favicon.ico',
+		'favicons/www.137b.org-favicon.ico',
+		'favicons/www.theverge.com-images-verge-favicon.png',
+		'favicons/nav.heroku.com-images-logos-favicon.ico',
+		'favicons/www.spiegel.de-favicon.ico',
+		'favicons/www.apple.com-favicon.ico',
+		'favicons/tether.com-sites-all-themes-tether-favicon.ico'
+	]);
+});
 
 </script>
 
