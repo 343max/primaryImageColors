@@ -21,18 +21,29 @@ div.sample div.favicon {
 	background-size: 100%;
 }
 
+div.sample div.color {
+	margin: 2px;
+	width: 10px;
+	height: 10px;
+	border: 1px solid gray;
+	font-size: 0.7em;
+}
+
 </style>
 <script>
 
 
 function processFavicons(favicons) {
 	$.each(favicons, function(i, url) {
-		console.log(url);
-
 		var div = $('<div>').addClass('sample');
 		div.append($('<div>').addClass('favicon').css('background-image', 'url(' + url + ')'));
 
-		imageColors(url);
+		imageColors(url, function(colors, totalPixelCount) {
+			for(var i = 0; i < Math.min(10, colors.length); i++) {
+				//console.log(colors[i].diversity);
+				div.append($('<div>').addClass('color').css('background-color', colors[i].rgba));
+			}
+		});
 
 		$('body').append(div);
 	});
