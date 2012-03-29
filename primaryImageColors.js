@@ -1,4 +1,7 @@
 function imageColors(imageUrl, callback) {
+	var d2h = function(d) {return d.toString(16);}
+	var h2d = function(h) {return parseInt(h, 16);}
+
 	var image = new Image();
 	image.onload = function() {
 		var width = Math.round(image.width / 2);
@@ -18,18 +21,18 @@ function imageColors(imageUrl, callback) {
 			var blue = imageData.data[i * 4 + 2];
 			var alpha = imageData.data[i * 4 + 3];
 
-			if (alpha < 128) continue;
+			if (alpha < 200) continue;
 
 			var diversity = Math.max(Math.abs(red - green), Math.abs(red - blue));
-
-			var colorId = 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')';
+			var rgba = 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')';
+			var colorId = d2h(red) + d2h(green) + d2h(blue) + d2h(alpha);
 
 			var colorI = colorIndex[colorId];
 			var color = null;
 			if (colorI) {
 				colors[colorI].pixels++;
 			} else {
-				color = {pixels: 1, rgba: colorId, red: red, green: green, blue: blue, alpha: alpha, diversity: diversity};
+				color = {pixels: 1, rgba: rgba, red: red, green: green, blue: blue, alpha: alpha, diversity: diversity};
 				colors.push(color);
 				colorIndex[colorId] = colors.length - 1;
 			}

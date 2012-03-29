@@ -40,7 +40,6 @@ function processFavicons(favicons) {
 
 		imageColors(url, function(colors, totalPixelCount) {
 			for(var i = 0; i < Math.min(10, colors.length); i++) {
-				//console.log(colors[i].diversity);
 				div.append($('<div>').addClass('color').css('background-color', colors[i].rgba));
 			}
 		});
@@ -68,7 +67,8 @@ $().ready(function() {
 		'favicons/nav.heroku.com-images-logos-favicon.ico',
 		'favicons/www.spiegel.de-favicon.ico',
 		'favicons/www.apple.com-favicon.ico',
-		'favicons/tether.com-sites-all-themes-tether-favicon.ico'
+		'favicons/tether.com-sites-all-themes-tether-favicon.ico',
+		'favicons/www.tagesschau.de-favicon.ico'
 	]);
 });
 
